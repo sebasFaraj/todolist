@@ -1,23 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import { ListItem } from './ListItem';
+import { useState } from "react";
 
 function App() {
+
+  const [newTask, setNewTask] = useState("");
+  const [todoList, setTodoList] = useState([]);
+
+  const updateNewTask = (event) =>
+  {
+    setNewTask(event.target.value);
+  }
+
+  const addNewTask = () =>
+  {
+    let temp = {
+      id: (todoList.length === 0) ? 1 : todoList[todoList.length - 1].id + 1,
+      name: newTask, 
+    };
+    setTodoList([...todoList,temp]);
+    document.getElementById("textbox").innerHtml = "";
+  }
+
+  const removeTask = (deletedTask) =>
+  {
+    const temp = todoList.filter((task) => {
+      return task.id !== deletedTask.id;
+    })
+
+    setTodoList(temp);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className = "header">
+        <input id = "textbox" type = "text" onChange = {updateNewTask}></input>
+        <button type = "button" onClick = {addNewTask}>Add Task</button>
       </header>
+      <main className = "ToDoList">
+        {todoList.map((task) => {
+          return(
+            <ListItem name = {task.name} id = {task.id} removeTask = {removeTask}/>
+          );
+        })}
+      </main>
     </div>
   );
 }
