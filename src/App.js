@@ -19,7 +19,8 @@ function App() {
       name: newTask, 
     };
     setTodoList([...todoList,temp]);
-    document.getElementById("textbox").innerHtml = "";
+    document.getElementById("textbox").value = "";
+    console.log(document.getElementById("textbox").innerHTML )
   }
 
   const removeTask = (deletedTask) =>
@@ -34,15 +35,25 @@ function App() {
   return (
     <div className="App">
       <header className = "header">
-        <input id = "textbox" type = "text" onChange = {updateNewTask}></input>
-        <button type = "button" onClick = {addNewTask}>Add Task</button>
+        <div className = "textContainer">
+          <h1 className = "headerText">ToDo List</h1>
+          <h2 className = "subHeaderText">A simple ToDo Application</h2>
+        </div>
+        <div className = "taskTextbox">
+          <input id = "textbox" placeholder = "Enter text here to start" type = "text" onChange = {updateNewTask}></input>
+          <button className = "addTask" type = "button" onClick = {addNewTask}>Add Task</button>
+        </div>
       </header>
-      <main className = "ToDoList">
-        {todoList.map((task) => {
-          return(
-            <ListItem name = {task.name} id = {task.id} removeTask = {removeTask}/>
-          );
-        })}
+      <main className = "main">
+        <div className = "mainList">
+          <h1 className = "listHeader">Tasks:</h1>
+          {todoList.map((task) => {
+           return(
+              <ListItem className = "listItem" name = {task.name} id = {task.id} removeTask = {removeTask}/>
+            );
+         })}
+        </div>
+        
       </main>
     </div>
   );

@@ -1,3 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #c8d0d2;
+  margin: 0px;
+}
+
+#root {
+  padding: 0;
+  margin: 0;
+}
+
+
 .App {
   text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #071952;
+  display: flex;
+  flex-direction: row;
+  color: #37B7C3;
+  padding: 10px; 
+}
+
+.textContainer {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.headerText {
+  display: inline-flex;
+  margin: 2px;
+}
+
+.subHeaderText {
+  display: inline-flex;
+  margin: 5px;
+}
+
+.taskTextbox {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+#textbox {
+  margin: 0px 10px;
+  width: 60%;
+  height: 25%;
+  padding: 7px;
+  border-radius: 5px;
+  font-family: "Open Sans";
+  box-shadow: 1px 1px 2px 0.5px black;
+  background-color: #d3e0e3;
+}
+
+.headerText {
+  justify-self: start;
+}
+
+
+.addTask {
+  width: 20%;
+  height: 45%;
+  padding: 5px;
+  font-family: "Open Sans";
+  font-weight: bold;
+  background-color: #37B7C3;
+  border-radius: 5px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.mainList {
+  width: 90%;
+  background-color: #088395;
+  border: 5px rgb(1, 11, 85) solid;
+  border-radius: 5px;
+  padding: 5px;
+  color: #a6d5dc;
+  display: flex;
+  flex-direction: column;
+}
+
+.listHeader {
+  align-self: start;
+  margin: 0px;
+}
+
+.listItem {
+  display: flex;
+  margin: 10px;
+  border: 3px solid #383a39;
+  border-radius: 1px;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.itemName {
+  margin: 0px;
+  font-size: 25px;
+  width: 50%;
+}
+
+.checkbox {
+  width: 20%;
+  background-color: #c8d0d2;
+  padding: 5px;
+  font-family: "Open Sans";
+  font-weight: bold;
+  background-color: #37B7C3;
+  border-radius: 5px;
 }
