@@ -89,7 +89,7 @@ body {
   border: 5px rgb(1, 11, 85) solid;
   border-radius: 5px;
   padding: 5px;
-  color: #a6d5dc;
+  color: #05424c;
   display: flex;
   flex-direction: column;
 }
@@ -104,6 +104,7 @@ body {
   margin: 10px;
   border: 3px solid #383a39;
   border-radius: 1px;
+  background-color: #c8d0d2;
   justify-content: space-around;
   padding: 5px;
 }
@@ -112,6 +113,8 @@ body {
   margin: 0px;
   font-size: 25px;
   width: 50%;
+  justify-self: start;
+  text-align: start;
 }
 
 .checkbox {
@@ -120,6 +123,6 @@ body {
   padding: 5px;
   font-family: "Open Sans";
   font-weight: bold;
-  background-color: #37B7C3;
+  background-color: #0699a6;
   border-radius: 5px;
 }
