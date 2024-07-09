@@ -20,7 +20,6 @@ function App() {
     };
     setTodoList([...todoList,temp]);
     document.getElementById("textbox").value = "";
-    console.log(document.getElementById("textbox").innerHTML )
   }
 
   const removeTask = (deletedTask) =>
@@ -28,6 +27,27 @@ function App() {
     const temp = todoList.filter((task) => {
       return task.id !== deletedTask.id;
     })
+
+    setTodoList(temp);
+  }
+
+  const editTask = (editedTask, textInput, submitButton) =>
+  {
+    const temp = todoList.map((task) => {
+      if (task.id === editedTask.id)
+      {
+        task.name = textInput.value;
+        return task;
+      }
+      else
+      {
+        return task;
+      }
+    })
+
+    textInput.style.display = "none";
+    submitButton.style.display = "none";
+    textInput.value = "";
 
     setTodoList(temp);
   }
@@ -49,7 +69,7 @@ function App() {
           <h1 className = "listHeader">Tasks:</h1>
           {todoList.map((task) => {
            return(
-              <ListItem className = "listItem" name = {task.name} id = {task.id} removeTask = {removeTask}/>
+              <ListItem className = "listItem" name = {task.name} id = {task.id} removeTask = {removeTask} editTask = {editTask}/>
             );
          })}
         </div>
